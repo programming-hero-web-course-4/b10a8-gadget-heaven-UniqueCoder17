@@ -7,7 +7,7 @@ const Footer = () => {
                 <h2 className="text-4xl font-bold mb-3">Gadget Heaven</h2>
                 <p>Leading the way in cutting-edge technology and innovation.</p>
             </div>
-            <footer className="footer mx-36 items-center text-black text-content p-10">
+            <footer className="footer items-center text-black text-content p-10">
                 <nav>
                     <h6 className="footer-title">Services</h6>
                     <a className="link link-hover">Product Support</a>

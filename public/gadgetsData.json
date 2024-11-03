@@ -1,0 +1,242 @@
+[
+  {
+    "product_id": 1,
+    "product_title": "Wireless Headphones",
+    "product_image": "https://i.ibb.co.com/fDj7Fgf/Wireless-Headphones.jpg",
+    "category": "Accessories",
+    "price": 59.99,
+    "description": "High-quality wireless headphones with noise cancellation.",
+    "Specification": [
+      "Battery Life: 20 hours",
+      "Bluetooth Version: 5.0",
+      "Weight: 250g"
+    ],
+    "availability": true,
+    "rating": 4.5,
+    "brand": "BrandName"
+  },
+  {
+    "product_id": 2,
+    "product_title": "Samsung Galaxy S24 Ultra",
+    "product_image": "https://i.ibb.co.com/FYmbmyv/Smartphone.jpg",
+    "category": "Phones",
+    "price": 299.99,
+    "description": "Latest model smartphone with a stunning display.",
+    "Specification": [
+      "Screen Size: 6.5 inches",
+      "Camera: 48MP",
+      "Storage: 128GB"
+    ],
+    "availability": true,
+    "rating": 4.7,
+    "brand": "Samsung"
+  },
+  {
+    "product_id": 3,
+    "product_title": "ASUS ROG STRIX G17",
+    "product_image": "https://i.ibb.co.com/zxrsvYh/Gaming-Laptop.webp",
+    "category": "Laptops",
+    "price": 999.99,
+    "description": "High-performance gaming laptop with a powerful GPU.",
+    "Specification": [
+      "Processor: Intel i7",
+      "RAM: 16GB",
+      "Storage: 1TB SSD"
+    ],
+    "availability": false,
+    "rating": 4.8,
+    "brand": "ASUS"
+  },
+  {
+    "product_id": 4,
+    "product_title": "Business Laptop",
+    "product_image": "https://i.ibb.co.com/khWF7Fh/Business-Laptop.jpg",
+    "category": "Laptops",
+    "price": 799.99,
+    "description": "Lightweight laptop for professionals with a long battery life.",
+    "Specification": [
+      "Processor: Intel i5",
+      "RAM: 8GB",
+      "Storage: 512GB SSD"
+    ],
+    "availability": true,
+    "rating": 4.4,
+    "brand": "HP"
+  },
+  {
+    "product_id": 5,
+    "product_title": "Ultrabook",
+    "product_image": "https://i.ibb.co.com/zbq7fGP/Asus-x21-ultrabook.jpg",
+    "category": "Laptops",
+    "price": 1299.99,
+    "description": "Sleek ultrabook with a vibrant display and lightweight design.",
+    "Specification": [
+      "Processor: Intel i7",
+      "RAM: 16GB",
+      "Storage: 1TB SSD"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "ASUS"
+  },
+  {
+    "product_id": 6,
+    "product_title": "Convertible Laptop",
+    "product_image": "https://i.ibb.co.com/TgS8drN/Convertible-Laptop.jpg",
+    "category": "Laptops",
+    "price": 899.99,
+    "description": "2-in-1 laptop that easily converts to a tablet.",
+    "Specification": [
+      "Processor: AMD Ryzen 5",
+      "RAM: 8GB",
+      "Storage: 256GB SSD"
+    ],
+    "availability": true,
+    "rating": 4.3,
+    "brand": "Lenovo"
+  },
+  {
+    "product_id": 7,
+    "product_title": "Scanrail",
+    "product_image": "https://i.ibb.co.com/hLGbmt1/scanrail.jpg",
+    "category": "Smart Watches",
+    "price": 199.99,
+    "description": "Smart watch with fitness tracking and notification alerts.",
+    "Specification": [
+      "Battery Life: 14 days",
+      "Water Resistant: Yes",
+      "Heart Rate Monitor: Yes"
+    ],
+    "availability": true,
+    "rating": 4.5,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 8,
+    "product_title": "Apple Watch Series 7 GPS",
+    "product_image": "https://i.ibb.co.com/pxVVRzQ/apple-Smart-Watch.jpg",
+    "category": "Smart Watches",
+    "price": 399.99,
+    "description": "Luxury smart watch with a classic design.",
+    "Specification": [
+      "Battery Life: 10 days",
+      "Water Resistant: Yes",
+      "GPS: Yes"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 9,
+    "product_title": "Smartwatch HUAWEI GT 2",
+    "product_image": "https://i.ibb.co.com/PFpq2Rx/gt2-Smart-Watch.jpg",
+    "category": "Smart Watches",
+    "price": 149.99,
+    "description": "Smart watch focused on fitness tracking.",
+    "Specification": [
+      "Battery Life: 7 days",
+      "Water Resistant: Yes",
+      "Heart Rate Monitor: Yes"
+    ],
+    "availability": true,
+    "rating": 4.4,
+    "brand": "HUAWEI"
+  },
+  {
+    "product_id": 10,
+    "product_title": "Denim Belt Stylish Wrist Watch",
+    "product_image": "https://i.ibb.co.com/jTnKnkm/belt-watch.jpg",
+    "category": "Smart Watches",
+    "price": 299.99,
+    "description": "Stylish smart watch with customizable watch faces.",
+    "Specification": [
+      "Battery Life: 12 days",
+      "Water Resistant: Yes",
+      "GPS: Yes"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "Gemius Army"
+  },
+  {
+    "product_id": 11,
+    "product_title": "Leytonn Gents watch",
+    "product_image": "https://i.ibb.co.com/10cZmvt/cine-watch.jpg",
+    "category": "Smart Watches",
+    "price": 99.99,
+    "description": "Budget-friendly smart watch with essential features.",
+    "Specification": [
+      "Battery Life: 5 days",
+      "Water Resistant: No",
+      "Heart Rate Monitor: No"
+    ],
+    "availability": true,
+    "rating": 4.2,
+    "brand": "Leytonn"
+  },
+  {
+    "product_id": 12,
+    "product_title": "Honor 200 pro",
+    "product_image": "https://i.ibb.co.com/wpX8n90/honor.webp",
+    "category": "Phones",
+    "price": 999.99,
+    "description": "Premium smartphone with cutting-edge technology.",
+    "Specification": [
+      "Screen Size: 6.7 inches",
+      "Camera: 108MP",
+      "Storage: 256GB"
+    ],
+    "availability": true,
+    "rating": 4.9,
+    "brand": "Honor"
+  },
+  {
+    "product_id": 13,
+    "product_title": "Mid-Range Smartphone",
+    "product_image": "https://i.ibb.co.com/j406TWs/phone.jpg",
+    "category": "Phones",
+    "price": 499.99,
+    "description": "Feature-rich smartphone for everyday use.",
+    "Specification": [
+      "Screen Size: 6.5 inches",
+      "Camera: 64MP",
+      "Storage: 128GB"
+    ],
+    "availability": true,
+    "rating": 4.6,
+    "brand": "Samsung"
+  },
+  {
+    "product_id": 14,
+    "product_title": "Apple iPhone 15 256GB",
+    "product_image": "https://i.ibb.co.com/ts9WRkC/apple-iphone-15.webp",
+    "category": "Phones",
+    "price": 199.99,
+    "description": "Affordable smartphone with all the essentials.",
+    "Specification": [
+      "Screen Size: 6.2 inches",
+      "Camera: 108MP",
+      "Storage: 256GB"
+    ],
+    "availability": true,
+    "rating": 4.3,
+    "brand": "Apple"
+  },
+  {
+    "product_id": 15,
+    "product_title": "Vivo-x-fold-3-pro",
+    "product_image": "https://i.ibb.co.com/CsCjQqs/vivo-x-fold-3-pro.jpg",
+    "category": "Phones",
+    "price": 799.99,
+    "description": "Smartphone designed for photography enthusiasts.",
+    "Specification": [
+      "Screen Size: 6.4 inches",
+      "Camera: 64MP + 12MP",
+      "Storage: 256GB"
+    ],
+    "availability": true,
+    "rating": 4.7,
+    "brand": "Vivo"
+  }
+]
