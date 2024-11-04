@@ -64,6 +64,22 @@
     "brand": "HP"
   },
   {
+    "product_id": 8,
+    "product_title": "Apple Watch Series 7 GPS",
+    "product_image": "https://i.ibb.co.com/pxVVRzQ/apple-Smart-Watch.jpg",
+    "category": "Smart Watches",
+    "price": 399.99,
+    "description": "Luxury smart watch with a classic design.",
+    "Specification": [
+      "Battery Life: 10 days",
+      "Water Resistant: Yes",
+      "GPS: Yes"
+    ],
+    "availability": true,
+    "rating": 4.8,
+    "brand": "Apple"
+  },
+  {
     "product_id": 5,
     "product_title": "Ultrabook",
     "product_image": "https://i.ibb.co.com/zbq7fGP/Asus-x21-ultrabook.jpg",
@@ -112,22 +128,6 @@
     "brand": "Apple"
   },
   {
-    "product_id": 8,
-    "product_title": "Apple Watch Series 7 GPS",
-    "product_image": "https://i.ibb.co.com/pxVVRzQ/apple-Smart-Watch.jpg",
-    "category": "Smart Watches",
-    "price": 399.99,
-    "description": "Luxury smart watch with a classic design.",
-    "Specification": [
-      "Battery Life: 10 days",
-      "Water Resistant: Yes",
-      "GPS: Yes"
-    ],
-    "availability": true,
-    "rating": 4.8,
-    "brand": "Apple"
-  },
-  {
     "product_id": 9,
     "product_title": "Smartwatch HUAWEI GT 2",
     "product_image": "https://i.ibb.co.com/PFpq2Rx/gt2-Smart-Watch.jpg",
@@ -142,6 +142,22 @@
     "availability": true,
     "rating": 4.4,
     "brand": "HUAWEI"
+  },
+  {
+    "product_id": 12,
+    "product_title": "Honor 200 pro",
+    "product_image": "https://i.ibb.co.com/wpX8n90/honor.webp",
+    "category": "Phones",
+    "price": 999.99,
+    "description": "Premium smartphone with cutting-edge technology.",
+    "Specification": [
+      "Screen Size: 6.7 inches",
+      "Camera: 108MP",
+      "Storage: 256GB"
+    ],
+    "availability": true,
+    "rating": 4.9,
+    "brand": "Honor"
   },
   {
     "product_id": 10,
@@ -174,22 +190,6 @@
     "availability": true,
     "rating": 4.2,
     "brand": "Leytonn"
-  },
-  {
-    "product_id": 12,
-    "product_title": "Honor 200 pro",
-    "product_image": "https://i.ibb.co.com/wpX8n90/honor.webp",
-    "category": "Phones",
-    "price": 999.99,
-    "description": "Premium smartphone with cutting-edge technology.",
-    "Specification": [
-      "Screen Size: 6.7 inches",
-      "Camera: 108MP",
-      "Storage: 256GB"
-    ],
-    "availability": true,
-    "rating": 4.9,
-    "brand": "Honor"
   },
   {
     "product_id": 13,

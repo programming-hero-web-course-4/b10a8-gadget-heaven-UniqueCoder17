@@ -9,7 +9,7 @@ const Root = () => {
 
     return (
         <div>
-            <div className={isHomePage ? "text-white bg-[#9538E2] mx-1 lg:mx-8 mt-4 rounded-3xl h-[520px] lg:h-[550px] mb-32 lg:mb-72" : ""}>
+            <div className={isHomePage ? "text-white bg-[#9538E2] mx-1 lg:mx-8 mt-4 rounded-3xl h-[520px] lg:h-[550px] mb-32 lg:mb-80" : ""}>
                 <NavBar />
                 {isHomePage && <Banner />}
             </div>
