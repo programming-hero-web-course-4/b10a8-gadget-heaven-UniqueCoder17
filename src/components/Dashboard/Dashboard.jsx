@@ -59,7 +59,6 @@ const Dashboard = () => {
         const gadget = wishList.find(gadget => gadget.product_id === id);
         if (gadget) {
             setCartList(prevCart => [...prevCart, gadget]);
-            // Remove from wishlist
             setWishList(prevWish => prevWish.filter(wishGadget => wishGadget.product_id !== id));
             toast.success(`${gadget.product_title} added to cart!`);
             addTOStoredCartList(id);
@@ -68,16 +67,21 @@ const Dashboard = () => {
 
     const handlePurchase = () => {
         if (totalCost > 0 && view === 'cart') {
-            setCartList([]);
-            setTotalCost(0);
             document.getElementById('my_modal_1').showModal();
-            toast.success(`Thanks for purchasing! Total: $${totalCost}`);
-        } else if (view === 'wishlist') {
-            toast.error('You cannot purchase from wishlist. Please add items to the cart.');
         } else {
             toast.error('Please add items to purchase.');
         }
     };
+
+    const closeModal = () => {
+        const modal = document.getElementById('my_modal_1');
+        setTotalCost(0);
+        setCartList([]);
+        modal.close();
+
+
+    };
+
 
     return (
         <div>
@@ -123,6 +127,15 @@ const Dashboard = () => {
                                         <h2 className="text-lg font-semibold">{gadget.product_title}</h2>
                                         <p className="text-sm text-gray-600">{gadget.description}</p>
                                         <p className="text-lg font-bold text-[#9538E2] mt-2">Price: ${gadget.price}</p>
+
+                                        {view === 'wishlist' && (
+                                            <button
+                                                onClick={() => handleAddToCart(gadget.product_id)}
+                                                className="btn bg-[#9538E2] rounded-full mt-2"
+                                            >
+                                                Add to Cart
+                                            </button>
+                                        )}
                                     </div>
                                 </div>
 
@@ -134,8 +147,11 @@ const Dashboard = () => {
                                         <TiDeleteOutline className='w-12 h-12' />
                                     </button>
                                 ) : (
-                                    <button onClick={() => handleAddToCart(gadget.product_id)} className="btn bg-[#9538E2] rounded-full">
-                                        Add to Cart
+                                    <button
+                                        onClick={() => handleDelete(gadget.product_id)}
+                                        className="text-red-600 rounded-full"
+                                    >
+                                        <TiDeleteOutline className='w-12 h-12' />
                                     </button>
                                 )}
                             </div>
@@ -154,12 +170,11 @@ const Dashboard = () => {
                         <p className='text-center'>Total: ${totalCost}</p>
                     </div>
                     <div className="modal-action">
-                        <form method="dialog">
-                            <button className="btn bg-[#9538E2]">Close</button>
-                        </form>
+                        <button onClick={closeModal} className="btn bg-[#9538E2]">Close</button>
                     </div>
                 </div>
             </dialog>
+
         </div>
     );
 };
