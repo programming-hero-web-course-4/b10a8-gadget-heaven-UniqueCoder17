@@ -12,8 +12,6 @@ const addTOStoredCartList = (id) => {
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('cart-list', storedListStr);
-    } else {
-        alert('Item is already in the cart');
     }
 }
 
@@ -31,8 +29,6 @@ const addTOStoredWishList = (id) => {
         storedList.push(id);
         const storedListStr = JSON.stringify(storedList);
         localStorage.setItem('wish-list', storedListStr);
-    } else {
-        alert('Item is already in the wishlist');
     }
 }
 

@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
-import { getStoredCartList, getStoredWishList } from '../../utility/addToDb';
+import { getStoredCartList, getStoredWishList, addTOStoredCartList } from '../../utility/addToDb';
+import { GrValidate } from "react-icons/gr";
+import { TiDeleteOutline } from "react-icons/ti";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Dashboard = () => {
     const [cartList, setCartList] = useState([]);
@@ -34,14 +38,15 @@ const Dashboard = () => {
     }, [cartList, wishList, view]);
 
     const handleDelete = (id) => {
+        const gadget = (view === 'cart' ? cartList : wishList).find(gadget => gadget.product_id === id);
         if (view === 'cart') {
             const updatedCartList = cartList.filter(gadget => gadget.product_id !== id);
             setCartList(updatedCartList);
-            alert('Item removed from cart');
+            toast.warning(`${gadget.product_title} removed from cart`);
         } else if (view === 'wishlist') {
             const updatedWishList = wishList.filter(gadget => gadget.product_id !== id);
             setWishList(updatedWishList);
-            alert('Item removed from wishlist');
+            toast.warning(`${gadget.product_title} removed from wishlist`);
         }
     };
 
@@ -50,77 +55,104 @@ const Dashboard = () => {
         view === 'cart' ? setCartList(sortedList) : setWishList(sortedList);
     };
 
+    const handleAddToCart = (id) => {
+        const gadget = wishList.find(gadget => gadget.product_id === id);
+        if (gadget) {
+            setCartList(prevCart => [...prevCart, gadget]);
+            // Remove from wishlist
+            setWishList(prevWish => prevWish.filter(wishGadget => wishGadget.product_id !== id));
+            toast.success(`${gadget.product_title} added to cart!`);
+            addTOStoredCartList(id);
+        }
+    };
+
     const handlePurchase = () => {
-        if (totalCost > 0) {
-            if (view === 'cart') {
-                setCartList([]);
-            } else if (view === 'wishlist') {
-                setWishList([]);
-            }
+        if (totalCost > 0 && view === 'cart') {
+            setCartList([]);
             setTotalCost(0);
             document.getElementById('my_modal_1').showModal();
+            toast.success(`Thanks for purchasing! Total: $${totalCost}`);
+        } else if (view === 'wishlist') {
+            toast.error('You cannot purchase from wishlist. Please add items to the cart.');
         } else {
-            alert('Please add items to purchase.');
+            toast.error('Please add items to purchase.');
         }
     };
 
     return (
         <div>
-            <div className='text-white bg-[#9538E2] pb-5 space-y-5'>
-                <h1 className="text-2xl md:text-3xl font-bold text-center pt-5">Dashboard</h1>
-                <p className='w-[400px] lg:w-[650px] text-center mx-auto'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
-                <div className='text-center'>
-                    <button className='btn px-10 mr-5 py-1 rounded-3xl' onClick={() => setView('cart')}>Cart</button>
-                    <button className='btn px-10 py-1 rounded-3xl' onClick={() => setView('wishlist')}>Wishlist</button>
-                </div>
-            </div>
-
+            <ToastContainer position="top-center" />
             <div className='w-11/12 mx-auto'>
-                <div className="flex justify-end mt-5 px-5 items-center space-x-3">
-                    <h1 className="text-2xl font-bold mr-[750px]">{view === 'cart' ? 'Cart' : 'Wishlist'}</h1>
-
-                    <button className="btn text-2xl font-bold rounded-full px-5">
-                        Total cost: ${totalCost}
-                    </button>
-
-                    <button onClick={handleSortByPrice} className="btn btn-outline text-[#9538E2] rounded-full px-5">
-                        Sort by Price
-                    </button>
-
-                    <button onClick={handlePurchase} className="btn btn-outline text-[#9538E2] rounded-full px-5">
-                        Purchase
-                    </button>
+                <div className='text-white bg-[#9538E2] pb-5 space-y-5'>
+                    <h1 className="text-2xl md:text-3xl font-bold text-center pt-5">Dashboard</h1>
+                    <p className='w-[400px] lg:w-[650px] text-center mx-auto'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
+                    <div className='text-center'>
+                        <button className='btn px-10 mr-5 py-1 rounded-3xl' onClick={() => setView('cart')}>Cart</button>
+                        <button className='btn px-10 py-1 rounded-3xl' onClick={() => setView('wishlist')}>Wishlist</button>
+                    </div>
                 </div>
 
-                <div className="flex flex-col items-center p-5 space-y-4 mt-10">
-                    {(view === 'cart' ? cartList : wishList).map(gadget => (
-                        <div key={gadget.product_id} className="w-full max-w-3xl border p-4 rounded-lg shadow-md flex items-center justify-between">
-                            {/* Product Details */}
-                            <div className="flex items-center space-x-4 flex-grow">
-                                <img src={gadget.product_image} alt={gadget.product_title} className="w-20 h-20 rounded-lg object-cover" />
-                                <div className="flex-grow">
-                                    <h2 className="text-lg font-semibold">{gadget.product_title}</h2>
-                                    <p className="text-sm text-gray-600">{gadget.description}</p>
-                                    <p className="text-lg font-bold text-[#9538E2] mt-2">Price: ${gadget.price}</p>
+                <div>
+                    <div className="flex justify-end mt-5 px-5 items-center space-x-3">
+                        <h1 className="text-2xl font-bold mr-[620px]">{view === 'cart' ? 'Cart' : 'Wishlist'}</h1>
+
+                        {view === 'cart' && (
+                            <>
+                                <button className="btn text-2xl font-bold rounded-full px-5">
+                                    Total cost: ${totalCost}
+                                </button>
+
+                                <button onClick={handleSortByPrice} className="btn btn-outline text-[#9538E2] rounded-full px-5">
+                                    Sort by Price
+                                </button>
+
+                                <button onClick={handlePurchase} className="btn btn-outline text-[#9538E2] rounded-full px-5">
+                                    Purchase
+                                </button>
+                            </>
+                        )}
+                    </div>
+
+                    <div className="flex flex-col items-center p-5 space-y-4 mt-10">
+                        {(view === 'cart' ? cartList : wishList).map(gadget => (
+                            <div key={gadget.product_id} className="w-full max-w-3xl border p-4 rounded-lg shadow-md flex items-center justify-between">
+
+                                <div className="flex items-center space-x-4 flex-grow">
+                                    <img src={gadget.product_image} alt={gadget.product_title} className="w-20 h-20 rounded-lg object-cover" />
+                                    <div className="flex-grow">
+                                        <h2 className="text-lg font-semibold">{gadget.product_title}</h2>
+                                        <p className="text-sm text-gray-600">{gadget.description}</p>
+                                        <p className="text-lg font-bold text-[#9538E2] mt-2">Price: ${gadget.price}</p>
+                                    </div>
                                 </div>
+
+                                {view === 'cart' ? (
+                                    <button
+                                        onClick={() => handleDelete(gadget.product_id)}
+                                        className="text-red-600 rounded-full"
+                                    >
+                                        <TiDeleteOutline className='w-12 h-12' />
+                                    </button>
+                                ) : (
+                                    <button onClick={() => handleAddToCart(gadget.product_id)} className="btn bg-[#9538E2] rounded-full">
+                                        Add to Cart
+                                    </button>
+                                )}
                             </div>
-
-                            <button
-                                onClick={() => handleDelete(gadget.product_id)}
-                                className="btn btn-error px-4 py-1 text-white rounded-full"
-                            >
-                                Delete
-                            </button>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            </div>
 
+            </div>
             {/* Purchase Modal */}
             <dialog id="my_modal_1" className="modal">
-                <div className="modal-box">
-                    <h3 className="font-bold text-xl text-center">Thank You!</h3>
-                    <p className="py-4 text-center">Your purchase was successful!</p>
+                <div className="modal-box space-y-4">
+                    <p><GrValidate className='w-12 h-12 text-[#3EB655] mx-auto' /></p>
+                    <h3 className="font-bold text-2xl text-center">Payment Successfully</h3>
+                    <div>
+                        <p className="py-4 text-center">Thanks for purchasing.</p>
+                        <p className='text-center'>Total: ${totalCost}</p>
+                    </div>
                     <div className="modal-action">
                         <form method="dialog">
                             <button className="btn bg-[#9538E2]">Close</button>

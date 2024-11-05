@@ -3,6 +3,8 @@ import { useLoaderData, useParams } from 'react-router-dom';
 import { TiShoppingCart } from "react-icons/ti";
 import { FaRegHeart } from "react-icons/fa";
 import { addTOStoredCartList, addTOStoredWishList } from '../../utility/addToDb';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const GadgetDetail = () => {
     const { product_id } = useParams();
@@ -14,12 +16,12 @@ const GadgetDetail = () => {
 
     const handleCart = (id) => {
         addTOStoredCartList(id);
-        alert('Added to Cart');
+        toast.success(`${product_title} added to Cart`);
     }
 
     const handleWish = (id) => {
         addTOStoredWishList(id);
-        alert('Added to Wishlist');
+        toast.success(`${product_title} added to Wishlist`);
     }
 
     return (
@@ -66,6 +68,7 @@ const GadgetDetail = () => {
                     </div>
                 </div>
             </section>
+            <ToastContainer position="top-center" />
         </div>
     );
 };

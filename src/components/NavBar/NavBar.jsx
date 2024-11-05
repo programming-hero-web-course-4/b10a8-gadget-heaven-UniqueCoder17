@@ -30,10 +30,10 @@ const NavBar = () => {
             </div>
             <div className="navbar-end space-x-1">
                 <button className="w-10 h-10 bg-white rounded-full">
-                    <NavLink><TiShoppingCart className="w-10 h-8 text-gray-600" /></NavLink>
+                    <NavLink to='dashboard'><TiShoppingCart className="w-10 h-8 text-gray-600" /></NavLink>
                 </button>
                 <button className="w-10 h-10 bg-white rounded-full">
-                    <NavLink><FaRegHeart className="w-8 h-8 text-gray-600 ml-1" /></NavLink>
+                    <NavLink to='dashboard'><FaRegHeart className="w-8 h-8 text-gray-600 ml-1" /></NavLink>
                 </button>
             </div>
         </div>
@@ -41,4 +41,3 @@ const NavBar = () => {
 };
 
 export default NavBar;
-
