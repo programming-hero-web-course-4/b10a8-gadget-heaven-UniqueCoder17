@@ -92,7 +92,7 @@ const Dashboard = () => {
                     <p className='w-[400px] lg:w-[650px] text-center mx-auto'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
                     <div className='text-center'>
                         <button className='btn px-10 mr-5 py-1 rounded-3xl' onClick={() => setView('cart')}>Cart</button>
-                        <button className='btn px-10 py-1 rounded-3xl' onClick={() => setView('wishlist')}>Wishlist</button>
+                        <button className='btn px-10 py-1 rounded-3xl' onClick={() => setView('wishlist')}>Wish List</button>
                     </div>
                 </div>
 
