@@ -1,10 +1,14 @@
 import React from 'react';
 import Gadgets from '../Gadgets/Gadgets';
+import { Helmet } from 'react-helmet';
 
 const Home = () => {
     return (
         <div>
-           <Gadgets></Gadgets>
+            <Helmet>
+                <title>Home | Gadget Heaven</title>
+            </Helmet>
+            <Gadgets></Gadgets>
         </div>
     );
 };

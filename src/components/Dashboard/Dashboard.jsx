@@ -5,6 +5,9 @@ import { GrValidate } from "react-icons/gr";
 import { TiDeleteOutline } from "react-icons/ti";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Helmet } from 'react-helmet';
+
+
 
 const Dashboard = () => {
     const [cartList, setCartList] = useState([]);
@@ -85,6 +88,9 @@ const Dashboard = () => {
 
     return (
         <div>
+            <Helmet>
+                <title> Dashboard | Gadget Heaven</title>
+            </Helmet>
             <ToastContainer position="top-center" />
             <div className='w-11/12 mx-auto'>
                 <div className='text-white bg-[#9538E2] pb-5 space-y-5'>

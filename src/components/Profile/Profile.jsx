@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet } from 'react-helmet';
+
+
 
 const Profile = () => {
 
@@ -30,6 +33,9 @@ const Profile = () => {
 
     return (
         <div className="w-11/12 mx-auto">
+            <Helmet>
+                <title> Profile | Gadget Heaven</title>
+            </Helmet>
             <div className='text-white bg-[#9538E2] pb-5 space-y-5'>
                 <h1 className="text-2xl md:text-3xl font-bold text-center pt-5">Profile</h1>
                 <p className='w-[400px] lg:w-[700px] text-center mx-auto'>Creating your profile opens the door to tailored experiences and exclusive features. Build a unique presence, showcase your skills, and connect with like-minded individuals on our platform.
