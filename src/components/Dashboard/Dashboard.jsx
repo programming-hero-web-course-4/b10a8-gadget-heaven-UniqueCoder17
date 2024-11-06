@@ -7,8 +7,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Helmet } from 'react-helmet';
 
-
-
 const Dashboard = () => {
     const [cartList, setCartList] = useState([]);
     const [wishList, setWishList] = useState([]);
@@ -70,7 +68,8 @@ const Dashboard = () => {
 
     const handlePurchase = () => {
         if (totalCost > 0 && view === 'cart') {
-            document.getElementById('my_modal_1').showModal();
+            const modal = document.getElementById('my_modal_1');
+            modal.showModal();
         } else {
             toast.error('Please add items to purchase.');
         }
@@ -81,21 +80,20 @@ const Dashboard = () => {
         setTotalCost(0);
         setCartList([]);
         modal.close();
-
-
     };
-
 
     return (
         <div>
             <Helmet>
-                <title> Dashboard | Gadget Heaven</title>
+                <title>Dashboard | Gadget Heaven</title>
             </Helmet>
             <ToastContainer position="top-center" />
             <div className='w-11/12 mx-auto'>
                 <div className='text-white bg-[#9538E2] pb-5 space-y-5'>
                     <h1 className="text-2xl md:text-3xl font-bold text-center pt-5">Dashboard</h1>
-                    <p className='w-[400px] lg:w-[650px] text-center mx-auto'>Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!</p>
+                    <p className='w-[400px] lg:w-[650px] text-center mx-auto'>
+                        Explore the latest gadgets that will take your experience to the next level. From smart devices to the coolest accessories, we have it all!
+                    </p>
                     <div className='text-center'>
                         <button className='btn px-10 mr-5 py-1 rounded-3xl' onClick={() => setView('cart')}>Cart</button>
                         <button className='btn px-10 py-1 rounded-3xl' onClick={() => setView('wishlist')}>Wish List</button>
@@ -145,27 +143,18 @@ const Dashboard = () => {
                                     </div>
                                 </div>
 
-                                {view === 'cart' ? (
-                                    <button
-                                        onClick={() => handleDelete(gadget.product_id)}
-                                        className="text-red-600 rounded-full"
-                                    >
-                                        <TiDeleteOutline className='w-12 h-12' />
-                                    </button>
-                                ) : (
-                                    <button
-                                        onClick={() => handleDelete(gadget.product_id)}
-                                        className="text-red-600 rounded-full"
-                                    >
-                                        <TiDeleteOutline className='w-12 h-12' />
-                                    </button>
-                                )}
+                                <button
+                                    onClick={() => handleDelete(gadget.product_id)}
+                                    className="text-red-600 rounded-full"
+                                >
+                                    <TiDeleteOutline className='w-12 h-12' />
+                                </button>
                             </div>
                         ))}
                     </div>
                 </div>
-
             </div>
+
             {/* Purchase Modal */}
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box space-y-4">
@@ -180,7 +169,6 @@ const Dashboard = () => {
                     </div>
                 </div>
             </dialog>
-
         </div>
     );
 };

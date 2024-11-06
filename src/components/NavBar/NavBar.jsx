@@ -11,7 +11,7 @@ const NavBar = () => {
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                        {/* Hamburger Icon */}
+
                     </div>
                     <ul className="menu menu-sm dropdown-content bg-gray-400 text-white rounded-box z-[1] mt-3 w-52 p-2 shadow">
                         <li><NavLink to="/">Home</NavLink></li>

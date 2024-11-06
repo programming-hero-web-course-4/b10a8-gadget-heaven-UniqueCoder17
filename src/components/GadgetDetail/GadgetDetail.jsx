@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData, useParams } from 'react-router-dom';
 import { TiShoppingCart } from "react-icons/ti";
-import { FaRegHeart } from "react-icons/fa";
+import { FaRegHeart, FaHeart } from "react-icons/fa";
 import { addTOStoredCartList, addTOStoredWishList } from '../../utility/addToDb';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,14 +14,23 @@ const GadgetDetail = () => {
     const gadget = data.find(gadget => gadget.product_id === id);
     const { product_image, product_title, price, description, Specification, rating } = gadget;
 
+    const [isWished, setIsWished] = useState(false);
+    const [cartCount, setCartCount] = useState(0);
+
     const handleCart = (id) => {
         addTOStoredCartList(id);
+        setCartCount(cartCount + 1);
         toast.success(`${product_title} added to Cart`);
     }
 
     const handleWish = (id) => {
-        addTOStoredWishList(id);
-        toast.success(`${product_title} added to Wishlist`);
+        if (!isWished) {
+            addTOStoredWishList(id);
+            setIsWished(true);
+            toast.success(`${product_title} added to Wishlist`);
+        } else {
+            toast.info(`${product_title} is already in your Wishlist`);
+        }
     }
 
     return (
@@ -34,7 +43,7 @@ const GadgetDetail = () => {
                 <div className="relative mt-5">
                     <div className='flex flex-col lg:flex-row w-[300px] bg-white lg:w-[820px] border-2 mx-auto mb-10 p-4 rounded-3xl'>
                         <div className='border-2 rounded-3xl mr-0 lg:mr-4'>
-                            <img className='w-[400px] h-[250px] lg:h-[400px] rounded-3xl' src={product_image} alt="" />
+                            <img className='w-[400px] h-[250px] lg:h-[400px] rounded-3xl' src={product_image} alt={product_title} />
                         </div>
                         <div className='space-y-2 mt-4 lg:mt-0'>
                             <h1 className='text-2xl lg:text-4xl font-bold'>{product_title}</h1>
@@ -62,7 +71,9 @@ const GadgetDetail = () => {
                             </div>
                             <div className='flex'>
                                 <button onClick={() => handleCart(product_id)} className='flex mr-4 text-white bg-[#9538E2] py-1 px-2 rounded-2xl font-bold'>Add To Cart <TiShoppingCart className="w-8 h-6 text-white" /></button>
-                                <button onClick={() => handleWish(product_id)}><FaRegHeart className="w-6 h-6 text-gray-600 ml-1" /></button>
+                                <button onClick={() => handleWish(product_id)} disabled={isWished}>
+                                    {isWished ? <FaHeart className="w-6 h-6 text-red-600 ml-1" /> : <FaRegHeart className="w-6 h-6 text-gray-600 ml-1" />}
+                                </button>
                             </div>
                         </div>
                     </div>

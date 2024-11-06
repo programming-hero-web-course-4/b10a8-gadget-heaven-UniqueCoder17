@@ -70,7 +70,7 @@ const Profile = () => {
                     className="border p-2 rounded"
                     required
                 />
-                <button type="submit" className="btn btn-primary mt-5 text-xl">Add Yor Profile</button>
+                <button type="submit" className="btn btn-primary bg-[#9538E2] mt-5 text-xl">Add Yor Profile</button>
             </form>
             <div className='text-center mt-5 space-y-5'>
                 <hr />

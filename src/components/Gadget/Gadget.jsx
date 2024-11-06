@@ -15,7 +15,7 @@ const Gadget = ({ gadget }) => {
             </figure>
             <div className="card-body pl-4">
                 <h2 className="card-title">{product_title}</h2>
-                <p>Price: ${price}</p>
+                <p>Price: <span className='font-bold'>${price}</span></p>
                 <div className="card-actions">
                     <Link to={`/gadgets/${product_id}`}>
                         <button className="btn rounded-3xl text-[#9538E2] border-[#9538E2] border-2">View Details</button>
