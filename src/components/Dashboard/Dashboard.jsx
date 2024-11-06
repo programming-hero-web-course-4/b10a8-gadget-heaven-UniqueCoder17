@@ -159,7 +159,7 @@ const Dashboard = () => {
             <dialog id="my_modal_1" className="modal">
                 <div className="modal-box space-y-4">
                     <p><GrValidate className='w-12 h-12 text-[#3EB655] mx-auto' /></p>
-                    <h3 className="font-bold text-2xl text-center">Payment Successfully</h3>
+                    <h3 className="font-bold text-2xl text-center">Payment Successfully!</h3>
                     <div>
                         <p className="py-4 text-center">Thanks for purchasing.</p>
                         <p className='text-center'>Total: ${totalCost}</p>
