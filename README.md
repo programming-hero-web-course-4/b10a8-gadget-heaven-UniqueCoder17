@@ -15,8 +15,12 @@ Gadget Heaven is an e-commerce platform where users can explore, filter, and man
 ---
 
 ## Table of Contents
-- [Live Website Link](#https://flourishing-meringue-0cb97b.netlify.app/)
-- [Requirement Document](#https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-UniqueCoder17)
+- [Live Website Link](#live-website-link)
+- [Requirement Document](#requirement-document)
+- [Project Overview](#project-overview)
+- [React Fundamentals Used](#react-fundamentals-used)
+- [Data Management](#data-management)
+- [Key Features](#key-features)
 
 ---
 
@@ -65,4 +69,4 @@ Data in this project is handled through:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-UniqueCoder17
+   git clone https://github.com/programming-hero-web-course-4/b10a8-gadget-heaven-UniqueCoder17.git
